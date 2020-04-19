@@ -6,7 +6,9 @@ from django.shortcuts import redirect
 from .forms import PostForm
 from django.http import HttpResponse
 
-
+def about(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'blog/about.html', {'posts': posts})
 
 def post_list(request):
     search = request.GET.get('search')
