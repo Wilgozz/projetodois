@@ -4,6 +4,8 @@ from django.utils import timezone
 from .models import Post
 from django.shortcuts import redirect
 from .forms import PostForm
+from django.http import HttpResponse
+
 
 
 def post_list(request):
